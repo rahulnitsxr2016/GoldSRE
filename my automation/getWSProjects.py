@@ -63,7 +63,7 @@ def getAllCCProjectsFromEventsDb():
         params = DBConfig.config()
         connection = psycopg2.connect(**params)
         cursor = connection.cursor()
-        cursor.execute("SELECT regexp_replace(projectname,'|ASL-|GSL-|OnAir-|CIS-|AO-|BP-|Voyager-|MSL-|BI-|Horizon-|SP-|BM-|PSL-|DA-' ::text, ''::text) FROM project_reference")
+        cursor.execute("SELECT regexp_replace(projectname,'ws products | ws prod 2 -' ::text, ''::text) FROM project_reference")
         allccprojects = cursor.fetchall()
         return allccprojects
 
@@ -101,13 +101,13 @@ enddate = "2020-09-30"
 start_date_obj = datetime.datetime.strptime(startdate, '%Y-%m-%d')
 end_date_obj = datetime.datetime.strptime(enddate, '%Y-%m-%d')
 currenttime = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-path = "/home/blackduck/Projects/AutomationSteps/eventscapture/src/reports/"
+path = "my path"
 filename = "new-projects" + currenttime
 
 
-userKey = "a765df84a78349c1b88bec1b93ab2e91a827b12124b84cdc819843c054244262"
-orgToken = "5a68c77bb07645cc94815016e01c5053083c6c745220477e8eb3e4f50f343bd6"
-excludeList = ["OSG", "OSGTemplate"]
+userKey = "123"
+orgToken = "456"
+excludeList = ["", ""]
 # get all products in organisation
 
 requestTypeProduct = "getAllProducts"
@@ -123,12 +123,7 @@ for member in allProducts["products"]:
 
 print(productTokens)
 
-'''
-productTokens = {"BI-BagPulse": "b74a5cf8125846818a0cda0e267034414fedbb49fc8f4c098532b0d38af69e9a",
-                 "BI-PFM": "f0e4f0e2d11a47d5bba86438c2212455a39a2c8cc4a64d5e95a836edad624448",
-                 "BM-GG": "22b6d24edd8549bc950fedfe0051a7928536d531515d4efcb14c0da09e851ded",
-                 "BM-TAM": "4d09831fd3c14622a97f92c7842b7ad5f835983347b549deaea896cf9a217bc9"}
-'''
+
 
 # Get projects from eventsDb. Populate list for WS and CC projects
 wsprojects = getAllWsProjectsFromEventsDb()
@@ -237,10 +232,10 @@ if os.path.exists(csvfilename):
     fileout.writelines(table)
     fileout.close()
     filein.close()
-#    command = '/usr/local/bin/sendEmail -f opensource@sita.aero -t aman.bhaskar@sita.aero -s mx-atl.sita.aero -u New WhiteSource Projects -a %s -m < %s'
+#    command = '/usr/local/bin/sendEmail -f xyz@company.com -t xyz@company.com  -s mx-atl.sita.aero -u New WhiteSource Projects -a %s -m < %s'
 #    print('command' %(csvfilename, htmlfilename))
-    os.system("/usr/local/bin/sendEmail -f opensource@sita.aero -t opensource@sita.aero -s mx-atl.sita.aero -u New WhiteSource Projects created between %s and %s -a %s -m < %s" % (startdate, enddate, csvfilename, htmlfilename))
+    os.system("/usr/local/bin/sendEmail -f xyz@company.com  -t xyz@company.com  -s your SMTP -u New WhiteSource Projects created between %s and %s -a %s -m < %s" % (startdate, enddate, csvfilename, htmlfilename))
 
 else:
     print("No new projects to be added in WS table")
-    os.system("/usr/local/bin/sendEmail -f opensource@sita.aero -t opensource@sita.aero -s mx-atl.sita.aero -u New WhiteSource Projects created between %s and %s -m No new WS project found which does not exist in WS table" % (startdate, enddate))
+    os.system("/usr/local/bin/sendEmail -f xyz@company.com  -t xyz@company.com  -s your SMTP -u New WhiteSource Projects created between %s and %s -m No new WS project found which does not exist in WS table" % (startdate, enddate))
