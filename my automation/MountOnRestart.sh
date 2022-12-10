@@ -1,14 +1,7 @@
 #!/bin/bash
-#This script is to mount the following directories on this VM
-#10.60.107.53:/Backup to /media/NASDevice
-#10.60.107.57:/home/blackduck/SDK to /home/blackduck/SDK/
-#10.60.107.57:/home/blackduck/automationscripts/ to /home/blackduck/automationscripts/
-#10.60.107.57:/home/blackduck/Projects/ to /home/blackduck/Projects/
-#10.60.107.57:/home/blackduck/TalandJob/ to /home/blackduck/TalandJob/
-#10.60.107.57:/home/blackduck/Taland/ to /home/blackduck/Taland/
 
-SSHHOST1=10.60.107.53
-SSHHOST2=10.60.107.57
+SSHHOST1=ip addr 
+SSHHOST2=ip addr 2 
 SSHHOST2PASSWORD=jenkins
 
 MEDIANASDEVICEDIR=/media/NASDevice/
@@ -17,8 +10,8 @@ AUTOSCRIPTSDIR=/home/blackduck/automationscripts/
 PROJECTSDIR=/home/blackduck/Projects/
 TALANDJOBDIR=/home/blackduck/TalandJob/
 TALANDDIR=/home/blackduck/Taland/
-PASSWORD=jenkins
-USER=jenkinsuser
+PASSWORD=pwd
+USER=usr
 currentdate=$(date '+%Y-%^b-%d')
 starttime=$(date '+%H.%M')
 rm -rf /root/scripts/mount-error.out 
@@ -38,8 +31,8 @@ checkstatus(){
 	fi
 }
 
-########Checking and mounting 10.60.107.53:/Backup to /media/NASDevice######################
-echo "checking and mounting 10.60.107.53:/Backup to /media/NASDevice" >> /root/scripts/mount.out
+########Checking and mounting ip addr::/Backup to /media/NASDevice######################
+echo "checking and mounting ip addr:/Backup to /media/NASDevice" >> /root/scripts/mount.out
 if mountpoint -q -- "$MEDIANASDEVICEDIR";
 then
 	echo "$MEDIANASDEVICEDIR already mounted" >> /root/scripts/mount.out
@@ -50,8 +43,8 @@ else
 fi
 
 
-########Checking and mounting 10.60.107.57:/home/blackduck/SDK to /home/blackduck/SDK/######################
-echo "checking and mounting 10.60.107.57:/home/blackduck/SDK to /home/blackduck/SDK/" >> /root/scripts/mount.out
+
+echo "checking and mounting ip addr::/home/blackduck/SDK to /home/blackduck/SDK/" >> /root/scripts/mount.out
 
 if mountpoint -q -- "$SDKDIR"
 then
@@ -65,8 +58,8 @@ fi
 
 
 
-########Checking and mounting 10.60.107.57:/home/blackduck/automationscripts/ to /home/blackduck/automationscripts/######################
-echo "checking and mounting 10.60.107.57:/home/blackduck/automationscripts/ to /home/blackduck/automationscripts/" >> /root/scripts/mount.out
+
+echo "checking and mounting ip addr::/home/blackduck/automationscripts/ to /home/blackduck/automationscripts/" >> /root/scripts/mount.out
 
 if mountpoint -q -- "$AUTOSCRIPTSDIR"
 then
@@ -79,8 +72,8 @@ fi
 
 
 
-########Checking and mounting 10.60.107.57:/home/blackduck/Projects/ to /home/blackduck/Projects/######################
-echo "checking and mounting 10.60.107.57:/home/blackduck/Projects/ to /home/blackduck/Projects/" >> /root/scripts/mount.out
+########Checking and mounting ip addr:/home/blackduck/Projects/ to /home/blackduck/Projects/######################
+echo "checking and mounting ip addr::/home/blackduck/Projects/ to /home/blackduck/Projects/" >> /root/scripts/mount.out
 
 if mountpoint -q -- "$PROJECTSDIR"
 then
@@ -91,8 +84,8 @@ else
 	checkstatus $PROJECTSDIR $laststatus
 fi
 
-########Checking and mounting 10.60.107.57:/home/blackduck/TalandJob/ to /home/blackduck/TalandJob/######################
-echo "checking and mounting 10.60.107.57:/home/blackduck/TalandJob/ to /home/blackduck/TalandJob/" >> /root/scripts/mount.out
+########Checking and mounting ip addr:/home/blackduck/TalandJob/ to /home/blackduck/TalandJob/######################
+echo "checking and mounting ip addr::/home/blackduck/TalandJob/ to /home/blackduck/TalandJob/" >> /root/scripts/mount.out
 
 if mountpoint -q -- "$TALANDJOBDIR"
 then
@@ -103,8 +96,8 @@ else
 	checkstatus $TALANDJOBDIR $laststatus
 fi
 
-########Checking and mounting 10.60.107.57:/home/blackduck/Taland/ to /home/blackduck/Taland/######################
-echo "checking and mounting 10.60.107.57:/home/blackduck/Taland/ to /home/blackduck/Taland/" >> /root/scripts/mount.out
+
+echo "checking and mounting ip addr::/home/blackduck/Taland/ to /home/blackduck/Taland/" >> /root/scripts/mount.out
 
 if mountpoint -q -- "$TALANDDIR"
 then
@@ -121,7 +114,7 @@ if mountpoint -q -- "/tmp/aman"
 then
         echo "/home/aman already mounted" >> /root/scripts/mount.out
 else
-        echo $PASSWORD | sshfs -o allow_other -o password_stdin $USER@$SSHHOST2:/home/bhaskar/ /tmp/aman
+        echo $PASSWORD | sshfs -o allow_other -o password_stdin $USER@$SSHHOST2:/home/rahul/ /tmp/rahul
         laststatus=$?
         checkstatus "/home/aman" $laststatus
 fi
@@ -133,7 +126,7 @@ stoptime=$(date '+%H.%M')
 if [ -f /root/scripts/mount-error.out ]
 then
 	echo "error while mounting" >> /root/scripts/mount.out
-	/usr/local/bin/sendEmail -f "opensource@sita.aero" -t "opensource@sita.aero" -s "mx-atl.sita.aero" -u "Error while mounting drives on JenkinsVm" -a "/root/scripts/mount-error.out" -m < "/root/scripts/mount-error.out"
+	/usr/local/bin/sendEmail -f "xyz@company.com" -t "xyz@company.com" -s "yout SMTP" -u "Error while mounting drives on JenkinsVm" -a "/root/scripts/mount-error.out" -m < "/root/scripts/mount-error.out"
 fi
 
 echo "------------------------------------End time of the script:  $currentdate1   $stoptime--------------------------" >> /root/scripts/mount.out
