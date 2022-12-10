@@ -1,9 +1,9 @@
 #! /usr/bin/sh
 sendemail=/usr/local/bin/sendEmail
-sendfrom="protexlive@sita.aero"
-senderaddress="cathal.mclaughlin@sita.aero"
-sendto="opensource@sita.aero"
-smtpserver="mx-atl.sita.aero"
+sendfrom="xyz@company.com"
+senderaddress="xyz@company.com"
+sendto="xyz@company.com"
+smtpserver="your SMTP"
 emailsubject="FAILURE: Website - ""$2""{""$1""} is not running!"
 
 rc=$(curl -s -o "/dev/null" $1)
