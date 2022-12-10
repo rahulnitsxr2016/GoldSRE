@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-This script is to get the project paramters from runanalysis.xml and stores them into eventsdb
+This script is to get the project paramters from some.xml and stores them into database
 """
 
 import sys
@@ -30,10 +30,10 @@ def check_ifProjectExists(projectname):
   print(pm)
   try:
        connection = psycopg2.connect(user = "postgres",
-                                  password = "blackduck",
-                                  host = "10.60.107.127",
-                                  port = "5432",
-                                  database = "eventsdb")
+                                  password = "pwd",
+                                  host = "ip addr",
+                                  port = "port of postgres",
+                                  database = "db name")
 
        cursor = connection.cursor()
        cursor.execute("SELECT * FROM parameters where projectname='%s'" %(pm))
