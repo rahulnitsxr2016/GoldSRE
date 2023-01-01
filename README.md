@@ -1,5 +1,8 @@
 # GoldSRE
 
+![logomy](https://user-images.githubusercontent.com/120258636/210159317-f2e046e2-6c11-4076-b597-0e3249727281.png)
+
+
 # Reach me here (https://www.linkedin.com/in/rahul-sharma-118207155/)
 # Deep Dive in SRE   [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 [<img src="awesome-sre-logo.svg" align="right" width="100">](https://dastergon.gr/awesome-sre)
