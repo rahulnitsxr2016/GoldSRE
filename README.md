@@ -18,6 +18,7 @@ A curated list of awesome [Site Reliability](https://www.usenix.org/conference/s
 
 # Thank you for visiting my  repository! We hope you find it helpful and informative.
 
+CREDITS @dastergon . https://github.com/dastergon AND THE REPO https://github.com/dastergon/awesome-sre
 
 #### What is Site Reliability Engineering?
 > "Fundamentally, it's what happens when you ask a software engineer to design an operations function." - Ben Treynor Sloss, VP Google Engineering, founder of Google SRE
