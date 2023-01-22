@@ -8,7 +8,17 @@
 [<img src="awesome-sre-logo.svg" align="right" width="100">](https://dastergon.gr/awesome-sre)
 
 
-A curated list of awesome [Site Reliability](https://www.usenix.org/conference/srecon14/technical-sessions/presentation/keys-sre) and [Production](https://www.usenix.org/conference/srecon15/program/presentation/canahuati) Engineering resources.
+A curated list of awesome [Site Reliability](https://www.usenix.org/conference/srecon14/technical-sessions/presentation/keys-sre) and [Production](https://www.usenix.org/conference/srecon15/program/presentation/canahuati) Engineering resources.I am combining all the data from many many different repos into this one single repo and including contribution also . Have a great journey .
+
+# Welcome to the SRE Knowledgebase repository! Here, you'll find articles, guides, and best practices for Site Reliability Engineering (SRE). This repository is intended to be a community-driven resource for SRE professionals and enthusiasts.
+
+# My goal is to provide a comprehensive collection of information on SRE topics, including availability, performance, and reliability. We cover everything from the basics of SRE to advanced techniques for scaling and improving your systems.
+
+# This repository is open to contributions from the community. If you have knowledge to share on a topic related to SRE, please feel free to submit a pull request. We welcome corrections, updates, new articles, and translations.
+
+# Thank you for visiting my  repository! We hope you find it helpful and informative.
+
+CREDITS @dastergon . https://github.com/dastergon AND THE REPO https://github.com/dastergon/awesome-sre
 
 #### What is Site Reliability Engineering?
 > "Fundamentally, it's what happens when you ask a software engineer to design an operations function." - Ben Treynor Sloss, VP Google Engineering, founder of Google SRE
