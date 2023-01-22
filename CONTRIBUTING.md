@@ -35,4 +35,4 @@ We expect all contributors to follow our [code of conduct](CODE_OF_CONDUCT.md) w
 
 ## License
 
-By contributing to this repository, you agree to license your contributions under the [MIT License](LICENSE).[under review]
+By contributing to this repository, you agree to license your contributions under the LICENSE.
